@@ -1,4 +1,5 @@
 using CachingDelegatingHandler.Clients;
+using CachingDelegatingHandler.Models;
 using Microsoft.AspNetCore.Mvc;
 
 namespace RetryDelegatingHandler.Controllers
@@ -15,7 +16,7 @@ namespace RetryDelegatingHandler.Controllers
         }
 
         [HttpGet()]
-        public async Task<IEnumerable<object>> Get()
+        public async Task<IReadOnlyCollection<Todo>> Get()
         {
             return await this.toDoItemsClient.GetItems();
         }
